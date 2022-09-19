@@ -12,6 +12,7 @@ runs:
       run: |
         pwd
         ls
+        echo "${{ inputs.model-path }}"
       shell: powershell
     - name: Run script
       uses: matlab-actions/run-command@v1
