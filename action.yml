@@ -1,0 +1,19 @@
+name: 'Compile matlab model'
+inputs:
+  model-path:
+    description: 'Path to matlab model'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v2
+      name: Checkout the workflow-practice repository
+    - name: Print dir
+      run: |
+        pwd
+        ls
+      shell: powershell
+    - name: Run script
+      uses: matlab-actions/run-command@v1
+      with:
+        command: main('${{ inputs.model-path }}')
